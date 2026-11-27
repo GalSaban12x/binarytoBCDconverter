@@ -1,0 +1,19 @@
+# Quartus-generated build products and temporary databases
+db/
+incremental_db/
+output_files/
+simulation/modelsim/
+*.qws
+*.rpt
+*.smsg
+*.summary
+*.jdi
+*.sof
+*.pof
+*.fit.*
+*.map.*
+*.sta.*
+*.flow.*
+# GHDL outputs
+work-obj*.cf
+tb_bin2bcd_selfcheck
