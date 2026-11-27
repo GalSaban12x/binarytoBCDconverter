@@ -23,6 +23,36 @@ din[7:0] --start---->| 8-bit down-counter   |---- count_enable ----+
 
 The converter loads the binary value on `start`, clears the BCD counters, and counts down once per clock while counting the BCD digits upward. When the down-counter reaches zero, `ready` is asserted.
 
+## Project visuals
+
+The following figures were captured during development of the original project. They document the counter-based design and a simulation session; they are **not** presented as proof that the updated regression test has passed.
+
+### Block diagram
+
+The project diagram shows the input binary down-counter and three cascaded BCD up-counters for the units, tens, and hundreds digits. The down-counter drives the counter-enable signal, while the cascaded terminal-count signals propagate decimal carries. The resulting digits are exposed through the original BCD-output interface shown in the diagram.
+
+> **Interface note:** The original schematic screenshots show `dout_low`, `dout_mid`, and `dout_high`. The current repository top level instead exposes the encoded seven-segment outputs `HEX0`, `HEX1`, and `HEX2`.
+
+<!-- Once docs/architecture-diagram.png has been uploaded, uncomment:
+![Original block diagram](docs/architecture-diagram.png)
+-->
+
+### RTL hierarchy / schematic view
+
+The Quartus schematic shows how `bindown` and the three instances of `bcdup` are connected. It provides a visual counterpart to the RTL hierarchy.
+
+<!-- Once docs/rtl-view.png has been uploaded, uncomment:
+![Quartus schematic view](docs/rtl-view.png)
+-->
+
+### Simulation waveform
+
+A waveform screenshot from the original project shows `clk`, `resetN`, `start`, `din`, three BCD digit outputs, and the `ready` signal. It illustrates the counting process for example input values; the screenshot alone does not establish exhaustive verification.
+
+<!-- Once docs/simulation-waveform.png has been uploaded, uncomment:
+![Original simulation waveform](docs/simulation-waveform.png)
+-->
+
 ## Interface
 
 | Signal | Direction | Description |
