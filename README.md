@@ -48,7 +48,7 @@ For `din = 173`, the final displayed digits are `1` (hundreds), `7` (tens), and 
 | `bindown.vhd` | 8-bit binary down-counter |
 | `bcdup.vhd` | Decimal up-counter with carry |
 | `hexsse.vhd` | Active-low seven-segment decoder |
-| `tb_bin2bcd.vhd` | Original testbench retained for reference |
+| `tb/tb_bin2bcd.vhd` | Original testbench retained for reference (legacy interface; not compatible with current top-level ports) |
 | `tb/tb_bin2bcd_selfcheck.vhd` | Automated testbench covering input values 0–255 |
 | `bin2bcd.qpf` / `bin2bcd.pin` | Original Quartus artifacts |
 
