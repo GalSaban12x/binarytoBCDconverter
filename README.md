@@ -44,20 +44,20 @@ For `din = 173`, the final displayed digits are `1` (hundreds), `7` (tens), and 
 
 | Path | Purpose |
 | --- | --- |
-| `bin2bcd.vhd` | Top-level converter |
-| `bindown.vhd` | 8-bit binary down-counter |
-| `bcdup.vhd` | Decimal up-counter with carry |
-| `hexsse.vhd` | Active-low seven-segment decoder |
+| `rtl/bin2bcd.vhd` | Top-level converter |
+| `rtl/bindown.vhd` | 8-bit binary down-counter |
+| `rtl/bcdup.vhd` | Decimal up-counter with carry |
+| `rtl/hexsse.vhd` | Active-low seven-segment decoder |
 | `tb/tb_bin2bcd.vhd` | Original testbench retained for reference (legacy interface; not compatible with current top-level ports) |
 | `tb/tb_bin2bcd_selfcheck.vhd` | Automated testbench covering input values 0–255 |
-| `bin2bcd.qpf` / `bin2bcd.pin` | Original Quartus artifacts |
+| `quartus/bin2bcd.qpf` / `quartus/bin2bcd.pin` | Original Quartus artifacts |
 
 ## Run the self-checking testbench (GHDL)
 
 If GHDL is installed:
 
 ```bash
-ghdl -a --std=08 bcdup.vhd bindown.vhd hexsse.vhd bin2bcd.vhd tb/tb_bin2bcd_selfcheck.vhd
+ghdl -a --std=08 rtl/bcdup.vhd rtl/bindown.vhd rtl/hexsse.vhd rtl/bin2bcd.vhd tb/tb_bin2bcd_selfcheck.vhd
 ghdl -e --std=08 tb_bin2bcd_selfcheck
 ghdl -r --std=08 tb_bin2bcd_selfcheck --assert-level=error
 ```
@@ -69,6 +69,8 @@ The testbench checks all 256 possible input values, including the boundary value
 ## Design trade-off
 
 This implementation uses repeated counting, so conversion latency scales with the input value (up to 255 clock cycles after the load edge). It reuses simple counter logic instead of a combinational or iterative shift/add-3 converter.
+
+See [`docs/architecture.md`](docs/architecture.md) for an architecture diagram and verification notes. The original Quartus `.pin` file is a generated report, not a pin-assignment input; a complete reusable Quartus project would also need its actual `.qsf` settings file, which is not present in this repository.
 
 ## Further work
 
