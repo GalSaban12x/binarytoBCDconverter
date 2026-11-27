@@ -33,24 +33,24 @@ The project diagram shows the input binary down-counter and three cascaded BCD u
 
 > **Interface note:** The original schematic screenshots show `dout_low`, `dout_mid`, and `dout_high`. The current repository top level instead exposes the encoded seven-segment outputs `HEX0`, `HEX1`, and `HEX2`.
 
-<!-- Once docs/architecture-diagram.png has been uploaded, uncomment:
-![Original block diagram](docs/architecture-diagram.png)
+<!-- Once docs/architecture-diagram.jpeg has been uploaded, uncomment:
+![Original block diagram](docs/architecture-diagram.jpeg)
 -->
 
 ### RTL hierarchy / schematic view
 
 The Quartus schematic shows how `bindown` and the three instances of `bcdup` are connected. It provides a visual counterpart to the RTL hierarchy.
 
-<!-- Once docs/rtl-view.png has been uploaded, uncomment:
-![Quartus schematic view](docs/rtl-view.png)
+<!-- Once docs/rtl-view.jpeg has been uploaded, uncomment:
+![Quartus schematic view](docs/rtl-view.jpeg)
 -->
 
 ### Simulation waveform
 
 A waveform screenshot from the original project shows `clk`, `resetN`, `start`, `din`, three BCD digit outputs, and the `ready` signal. It illustrates the counting process for example input values; the screenshot alone does not establish exhaustive verification.
 
-<!-- Once docs/simulation-waveform.png has been uploaded, uncomment:
-![Original simulation waveform](docs/simulation-waveform.png)
+<!-- Once docs/simulation-waveform.jpeg has been uploaded, uncomment:
+![Original simulation waveform](docs/simulation-waveform.jpeg)
 -->
 
 ## Interface
